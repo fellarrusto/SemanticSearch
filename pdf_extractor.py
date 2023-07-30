@@ -1,7 +1,6 @@
 import json
 import re
 import fitz  # PyMuPDF
-from PyPDF2 import PdfFileReader
 from nltk.tokenize import sent_tokenize
 import nltk
 nltk.download('punkt')
