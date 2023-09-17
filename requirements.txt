@@ -1,2 +1,0 @@
-PyMuPDF
-nltk==3.5

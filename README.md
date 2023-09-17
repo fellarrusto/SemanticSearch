@@ -1,43 +1,46 @@
-# Semantic Search Application
+# SemSemantic Search in PDFs
 
-This is a semantic search application built in Python that allows you to search for relevant information from a collection of PDF documents. The application utilizes an embedding layer to preprocess the PDFs and stores them in a semantic search database for efficient retrieval.
+This repository provides four python scripts to quickly setup a lightweight search engine for your PDFs. It uses sentence transformers to convert sentences to semantic vectors, which are then stored in a SQLite3 database. 
 
-## Features
+## Getting Started
 
-- Extracts text from PDF documents using `pdf_extractor.py`
-- Preprocesses the extracted text and passes it through an embedding layer
-- Stores the embeddings in a semantic search database for quick search and retrieval
+Follow these steps to process all PDFs in a folder and setup your own semantic search engine.
 
-## Installation
+1. Run pdf_embedder.py on all the PDFs of your library.
+2. Empty the vecdb folder.
+3. Run chroma_vector_db.py to create the SQLite3 database.
+4. Run chromadb_server.py to test the search.
 
-1. Clone the repository:
+## Scripts
 
-   ```
-   git clone https://github.com/fellarrusto/SemanticSearch
-   ```
+### pdf_embedder.py 
 
-2. Install the dependencies from `requirements.txt`:
+This script processes a given PDF file and converts each sentence into a semantic vector using sentence transformers model. It then stores these vectors, along with the sentence it corresponds to and some metadata such as the page number and index of the sentence on the page, in a JSON file.
 
-   ```
-   pip install -r requirements.txt
-   ```
+### chroma_vector_db.py
 
-## Usage
+This script creates an SQLite3 database and adds the sentence vectors from the JSON file created by the pdf_embedder.py script to the database.
 
-1. Run the `pdf_extractor.py` script to preprocess your PDF documents.
+### chromadb_server.py
 
-2. Use the semantic search application to search for relevant information from the preprocessed PDFs.
+This script queries the SQLite3 database created by the chroma_vector_db.py script. It converts a search query into a semantic vector using the same sentence transformer model, and then searches the database for the closest matching vectors.
 
-## Contributing
+## Prerequisites
 
-Contributions are welcome! If you would like to contribute to this project, please follow these steps:
+You need to have Python 3.8+ installed along with the following libraries:
 
-1. Fork the repository.
+```
+fitz
+nltk
+re
+sentence_transformers
+chromadb
+```
 
-2. Create a new branch.
+You can install these packages using pip:
 
-3. Implement your desired features or bug fixes.
+```pip install PyMuPDF nltk regex sentence-transformers chromedb```
 
-4. Test your changes thoroughly.
+## Note
 
-5. Submit a pull request.
+You might need to adjust the paths in these scripts to correctly point to your own directories.
