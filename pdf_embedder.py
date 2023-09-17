@@ -55,10 +55,8 @@ model = SentenceTransformer('distiluse-base-multilingual-cased-v2')
 #
 # model = SentenceTransformer(modelPath)
 
-pdf_dir = "F:/CorsariNeri/Biblioteca/Libri/OCR/"
-pdf_dir = "C:/Users/filip/Downloads/"
-pdf_name = "(S.Agnello) Le Strade di S.Agnello - Franco Gargiulo.pdf"
-pdf_name = "cattedrale.pdf"
+pdf_dir = "your/folder/"
+pdf_name = "youtfile.pdf"
 pdf_path = pdf_dir + pdf_name
 json_path = f'{pdf_name}result.json'
 

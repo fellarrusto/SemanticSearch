@@ -1,9 +1,9 @@
 import chromadb
 import json
-client = chromadb.PersistentClient(path="D:/CorsariNeri/RnD/MachineLearning/SemanticSearch/vecdb")
+client = chromadb.PersistentClient(path="/vecdb")
 
 collection = client.create_collection(name="cn_library")
-f = open("D:\CorsariNeri\RnD\MachineLearning\SemanticSearch\cattedrale.pdfresult.json", 'r', encoding='utf-8')
+f = open("your/file/path.pdf", 'r', encoding='utf-8')
 dataset = json.load(f)
 
 collection.add(

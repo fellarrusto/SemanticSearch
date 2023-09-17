@@ -15,10 +15,10 @@ model = SentenceTransformer('distiluse-base-multilingual-cased-v2')
 def compute_embedding(text, model):
   return model.encode(text)
 
-client = chromadb.PersistentClient(path="D:/CorsariNeri/RnD/MachineLearning/SemanticSearch/vecdb")
+client = chromadb.PersistentClient(path="/vecdb")
 
 collection = client.get_collection(name="cn_library")
-embedding = compute_embedding("La vecchia abside è stata incorporata in questo imponente doppio cilindro, decorato con cornicioni in terracotta.", model)
+embedding = compute_embedding("Your search query.", model)
 results = collection.query(
     query_embeddings=[embedding.tolist()],
     n_results=3
