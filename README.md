@@ -1,4 +1,4 @@
-# Project Title: PDF Semantic Search 
+# PDF Semantic Search 
 
 This repository provides four python scripts to quickly setup a lightweight search engine for your PDFs. It uses sentence transformers to convert sentences to semantic vectors, which are then stored in a SQLite3 database to perform embedding search with the vector database Chroma.
 
